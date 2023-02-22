@@ -8,7 +8,7 @@ const secretNumber = document.querySelector('.number');
 const guess = document.querySelector('.guess');
 
 // Sets initial score and high score to their default values
-let score = 5; 
+let score = 5;
 let highScore = 0;
 
 
@@ -69,14 +69,14 @@ function checkGuess(guess, randomNumber) {
 
     // If there is no guessed number, displays an error message
     if (!guess) {
-        displayMessage("No number to check! TT");
+        displayMessage("No number to check! 😞");
     }
 
     // If the guessed number matches the random number, the user wins
     else if (guess === randomNumber) {
 
         // Displays a win message
-        displayMessage("Correct Number!");
+        displayMessage("🏆 Correct Number!");
 
         // Displays the correct number as the secret number
         secretNumber.textContent = randomNumber;
@@ -109,7 +109,7 @@ function checkGuess(guess, randomNumber) {
         else {
             score = 0;
             displayScore(score);
-            displayMessage("GAME OVER!");
+            displayMessage("🤯 GAME OVER!");
         }
     }
 }
