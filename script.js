@@ -12,18 +12,18 @@ let score = 5;
 let highScore = 0;
 
 
-// TODO: refactor this part to allow for the same behaviour when the user presses the enter key instead of clicking the check button, use a function
 // Selects the check button and adds an event listener for click
 const checkButton = document.querySelector('.check');
-checkButton.addEventListener('click', () => {
+checkButton.addEventListener('click', submit);
 
-    // Gets the guessed number(string) from the input field and converts to a number
-    const guessedNumber = Number(guess.value);
+//Adds an event listener to the input field for when the enter key is pressed
+guess.addEventListener('keydown', (e) => {
 
-    // Checks if the guessed number matches the random number
-    checkGuess(guessedNumber, randomNumber);
+    if (e.key === 'Enter') {
+        
+        submit();
+    }
 });
-
 
 // Selects the play again button and adds an event listener for click
 const playAgainButton = document.querySelector('.again');
@@ -42,6 +42,17 @@ playAgainButton.addEventListener('click', () => {
 
     guess.value = '';
 });
+
+
+// Gets the number from the input field and passes it to the checkGuess function
+function submit() {
+
+    // Gets the guessed number(string) from the input field and converts to a number
+    const guessedNumber = Number(guess.value);
+
+    // Checks if the guessed number matches the random number
+    checkGuess(guessedNumber, randomNumber);
+}
 
 
 // Generates a random number between 1 and 20 (inclusive)
